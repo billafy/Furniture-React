@@ -1,0 +1,105 @@
+nav
+{
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px auto 20%;
+}
+.burger
+{
+   display: none;
+   flex-direction: column;
+   justify-content: center;
+}
+.line
+{
+    height: 8px;
+    width: 50px;
+    background: white;
+    margin: 4px auto;
+    border-radius: 4px;
+}
+.all-lines:hover .line
+{
+    background: #ffb900;
+}
+.home
+{
+    display: flex;
+    margin: auto;
+}
+.home a
+{
+    display: flex;
+    align-items: center;
+}
+.homeimg 
+{
+    height: 56px; 
+    width: 80px;
+}
+.homeimg:hover
+{
+    content:url("https://github.com/billafy/furniture-react/blob/main/components/home0.png?raw=true");
+    transition: all 0.5s ease;
+}
+.left,.right
+{
+    margin: auto 0px;
+}
+.left ul
+{
+    display: flex;
+    list-style: none;
+}
+.left ul a
+{
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    background-color: #303030;
+    font-size: 20px;
+    border-radius: 50px;
+    margin: 0px 2px;
+}
+.left ul a:hover
+{
+    background-color: #ffb900;
+    transition: all 0.3s ease;
+}
+.right p
+{
+    color: white;
+    display: inline;
+    padding: 5px;
+    font-size: 1.3em;
+    float: right;
+    margin-right: 20px;
+}
+.right p:hover
+{
+    color: #ffb900;
+}
+@media only screen and (max-width: 768px) 
+{
+    nav
+    {
+        grid-template-columns: 100px auto 20% 80px;  
+    }
+    .burger
+    {
+        display: flex;
+    }
+}
+@media only screen and (max-width: 686px)
+{
+    nav
+    {
+        grid-template-columns: 20% auto 80px;  
+    }
+    .left
+    {
+        display: none;
+    }
+}
