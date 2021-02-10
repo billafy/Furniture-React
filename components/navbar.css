@@ -44,7 +44,32 @@ nav{
     display: flex;
     list-style: none;
 }
-.left ul a,.right ul a{
+.products:hover .dropdown-content {
+    display: flex;
+  }
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #a8a8a8;
+    min-width: 160px;
+    border-radius: 20px;
+    top: 70px;
+    left: 190px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  .dropdown-content a{
+      text-decoration: none;
+      border-radius: 12px;
+      color: rgb(0, 0, 0);
+padding: 12px;
+  }
+  .dropdown-content a:hover{
+    background-color:  rgba(255, 255, 255, 0.11);
+}
+.link{
     color: white;
     text-decoration: none;
     padding: 20px;
@@ -53,7 +78,7 @@ nav{
     border-radius: 50px;
     margin: 0px 2px;
 }
-.left ul a:hover,.right ul a:hover{
+.link:hover{
     background-color: #ffb900;
     transition: all 0.3s ease;
 }
