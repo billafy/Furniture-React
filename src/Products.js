@@ -1,13 +1,37 @@
-import React, {useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {AppContext} from './App';
+import {Link} from 'react-router-dom';
+import Loading from './Loading';
 
 const Products = () => {
-	const {state:{products},getProducts} = useContext(AppContext);
+	const [company,setCompany] = useState(null);
+	const [priceRange,setPriceRange] = useState(null);
+	const [category,setCategory] = useState(null);
+	const {state:{products, productsLoading},getProducts} = useContext(AppContext);
 
 	useEffect(() => {
-		getProducts();
+		getProducts('ALL_PRODUCTS',0,0);
 	}, []);
 
+	useEffect(() => {
+		if(company)
+			getProducts('FILTER_COMPANY',0,company);
+	}, [company]);
+
+	useEffect(() => {
+		if(priceRange)
+			getProducts('FILTER_PRICE_RANGE',0,priceRange);
+	}, [priceRange]);
+
+	useEffect(() => {
+		if(category)
+			getProducts('FILTER_CATEGORY',0,category);
+	}, [category]);
+
+	if(productsLoading)
+		return <Loading/>;
+	else if(products.length===0)
+		return <h3>No results</h3>;	
 	return (
 		<>
 			<h3>Products</h3>
@@ -16,6 +40,7 @@ const Products = () => {
 						<div key={product.id}>
 							<img src={product.image}/>
 							<p>{product.name}</p>	
+							<Link to={'/product/'+product.id}>More details</Link>
 						</div>
 					);
 				})}

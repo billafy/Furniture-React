@@ -1,6 +1,6 @@
 import React, {useReducer} from "react";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import reducer from './utils/reducer';
+import {reducer} from './utils/reducer';
 
 import Navbar from './Navbar';
 import Home from './Home';
@@ -17,6 +17,9 @@ const url = 'https://course-api.com/react-store-products';
 
 const defaultStates = {
 	products: [],
+	selectedProduct : {},
+	productsLoading: true,
+	singleProductLoading: true
 };
 
 export const AppContext = React.createContext();
@@ -24,10 +27,10 @@ export const AppContext = React.createContext();
 const App = () => {
 	const [state,dispatch] = useReducer(reducer,defaultStates);
 
-	const getProducts = async () => {
+	const getProducts = async (type,id,filterTerm) => {
 		const response = await fetch(url);
 		const data = await response.json();
-		dispatch({type:'GET_PRODUCTS',payload:data});
+		dispatch({type:type,payload:{data,id,filterTerm}});
 	}
 
 	return (
