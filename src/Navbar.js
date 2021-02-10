@@ -27,11 +27,11 @@ const Navbar = () => {
 				<Link to='/cart'><span className="carticon"><FaShoppingCart /></span></Link>
 			</div>
 			<div className="burger">
-				<div className="all-lines">
+				<a className="all-lines">
 					<div className="line"></div>
 					<div className="line"></div>
 					<div className="line"></div>
-				</div>
+				</a>
 			</div>
 		</nav>
 	);

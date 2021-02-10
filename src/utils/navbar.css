@@ -14,16 +14,19 @@ nav
 }
 .line
 {
-    height: 8px;
-    width: 50px;
+    height: 4px;
+    width: 26px;
     background: white;
     margin: 4px auto;
     border-radius: 4px;
 }
-.all-lines:hover .line
-{
-    background: #ffb900;
+.all-lines{
+    padding: 20px;
+    background-color: #ffb900;
+    border-radius: 50px;
+    width: 67px;
 }
+
 .home
 {
     display: flex;
@@ -95,7 +98,7 @@ nav
 {
     nav
     {
-        grid-template-columns: 100px auto 20% 80px;  
+        grid-template-columns: 100px auto 15% 75px;  
     }
     .burger
     {
@@ -106,7 +109,7 @@ nav
 {
     nav
     {
-        grid-template-columns: 20% auto 80px;  
+        grid-template-columns: 100px auto 74px;  
     }
     .left
     {
