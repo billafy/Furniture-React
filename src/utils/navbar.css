@@ -36,7 +36,7 @@ nav
 }
 .homeimg 
 {
-    height: 56px; 
+    height: 61px; 
     width: 80px;
 }
 .homeimg:hover
@@ -68,18 +68,28 @@ nav
     background-color: #ffb900;
     transition: all 0.3s ease;
 }
-.right p
+.carticon{
+    display: flex;
+}
+.right a
 {
     color: white;
-    display: inline;
-    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 67px;
+    height: 67px;
+    padding: 20px;
+    background-color: #303030;
     font-size: 1.3em;
+    border-radius: 50px;
     float: right;
-    margin-right: 20px;
+    margin-right: 8px;
 }
-.right p:hover
+.right a:hover
 {
-    color: #ffb900;
+    background-color: #ffb900;
+    transition: all 0.3s ease;
 }
 @media only screen and (max-width: 768px) 
 {
