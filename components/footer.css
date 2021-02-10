@@ -19,6 +19,9 @@ footer {
  .about,.links,.address{
      padding: 40px;
  }
+ .about h2,.links h2,.address h2{
+    color: rgb(255, 255, 255);
+}
  .links-address{
      display: grid;
      grid-template-columns: 50% 50%;
@@ -29,6 +32,10 @@ footer {
 .link{
     text-decoration: none;
     color: white;
+    padding: 2px;
+}
+.link:hover{
+    color: rgb(24, 24, 24);
 }
   .bottom{
     background-color: #b8860b;
