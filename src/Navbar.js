@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import './utils/navbar.css';
 import { navlinks } from './utils/constants';
 import { FaShoppingCart } from 'react-icons/fa';
+import furniturehome from './utils/furniturehome.png';
 
 const Navbar = () => {
 	return (
@@ -10,7 +11,7 @@ const Navbar = () => {
 			<div className="home">
 				<Link to='/'>
 					<img className="homeimg"
-						src="https://github.com/billafy/furniture-react/blob/main/components/home1.png?raw=true"
+						src={furniturehome}
 						alt="home" />
 				</Link>
 			</div>
