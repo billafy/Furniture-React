@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useState, useEffect, useReducer} from "react";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {reducer} from './utils/reducer';
 
@@ -25,6 +25,7 @@ const defaultStates = {
 export const AppContext = React.createContext();
 
 const App = () => {
+	const [height, setHeight] = useState(window.innerHeight);
 	const [state,dispatch] = useReducer(reducer,defaultStates);
 
 	const getProducts = async (type,id,filterTerm) => {
@@ -33,28 +34,37 @@ const App = () => {
 		dispatch({type:type,payload:{data,id,filterTerm}});
 	}
 
+	useEffect(() => {
+		window.addEventListener('resize',() => setHeight(window.innerHeight));
+		return () => {
+			window.removeEventListener('resize',() => setHeight(window.innerHeight));
+		}
+	}, [height]);
+
 	return (
 		<AppContext.Provider value={{state,getProducts}}>
 			<Router>
 				<Navbar/>
-				<Switch>
-					<Route exact path='/'>
-						<Home/>						
-					</Route>
-					<Route path='/products'>
-						<Products/>
-					</Route>
-					<Route path='/cart'>
-						<Cart/>
-					</Route>
-					<Route path='/product/:id' children={<SingleProduct/>}></Route>
-					<Route path='/about'>
-						<About/>
-					</Route>
-					<Route path='*'>
-						<Error/>						
-					</Route>
-				</Switch>
+				<section style={{minHeight:height-100,maxHeight:'auto'}}>
+					<Switch>
+						<Route exact path='/'>
+							<Home/>						
+						</Route>
+						<Route path='/products'>
+							<Products/>
+						</Route>
+						<Route path='/cart'>
+							<Cart/>
+						</Route>
+						<Route path='/product/:id' children={<SingleProduct/>}></Route>
+						<Route path='/about'>
+							<About/>
+						</Route>
+						<Route path='*'>
+							<Error/>						
+						</Route>
+					</Switch>
+				</section>
 				<Footer/>
 			</Router>
 		</AppContext.Provider>

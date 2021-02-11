@@ -11,22 +11,22 @@ const Products = () => {
 
 	useEffect(() => {
 		getProducts('ALL_PRODUCTS',0,0);
-	}, []);
+	}, [getProducts]);
 
 	useEffect(() => {
 		if(company)
 			getProducts('FILTER_COMPANY',0,company);
-	}, [company]);
+	}, [company, getProducts]);
 
 	useEffect(() => {
 		if(priceRange)
 			getProducts('FILTER_PRICE_RANGE',0,priceRange);
-	}, [priceRange]);
+	}, [priceRange, getProducts]);
 
 	useEffect(() => {
 		if(category)
 			getProducts('FILTER_CATEGORY',0,category);
-	}, [category]);
+	}, [category, getProducts]);
 
 	if(productsLoading)
 		return <Loading/>;

@@ -6,34 +6,48 @@ import { FaShoppingCart } from 'react-icons/fa';
 import furniturehome from './utils/furniturehome.png';
 
 const Navbar = () => {
+	const [width, setWidth] = useState(window.innerWidth);
+	const [showDropDown, setShowDropDown] = useState(false);
+
+	useEffect(() => {
+		window.addEventListener('resize',() => setWidth(window.innerWidth));
+		if(width>768)
+			setShowDropDown(true);
+		return () => {
+			window.removeEventListener('resize',() => setWidth(window.innerWidth));
+		}
+	}, [width]);
+
 	return (
 		<nav>
 			<div className="home">
 				<Link to='/'>
 					<img className="homeimg"
 						src={furniturehome}
-						alt="home" />
+						alt="home"/>
 				</Link>
 			</div>
-			<div className="left">
-				<ul>
-					{navlinks.map((link) => {
-						return (
-							<Link to={link.to} key={link.id}><li>{link.title}</li></Link>
-						);
-					})}
-				</ul>
-			</div>
+			{showDropDown &&
+				<div className="left">
+					<ul>
+						{navlinks.map((link) => {
+							return (
+								<li key={link.id}><Link to={link.to}>{link.title}</Link></li>
+							);
+						})}
+					</ul>
+				</div>}
 			<div className="right">
-				<Link to='/cart'><span className="carticon"><FaShoppingCart /></span></Link>
+				<Link to='/cart'><span><FaShoppingCart/></span></Link>
 			</div>
-			<div className="burger">
-				<a className="all-lines">
-					<div className="line"></div>
-					<div className="line"></div>
-					<div className="line"></div>
-				</a>
-			</div>
+			{width<768 && 
+				<div className="burger">
+					<button className="all-lines" onClick={()=>setShowDropDown(!showDropDown)}>
+						<div className="line"></div>
+						<div className="line"></div>
+						<div className="line"></div>
+					</button>
+				</div>}
 		</nav>
 	);
 }

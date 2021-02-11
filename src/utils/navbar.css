@@ -1,41 +1,17 @@
 nav
 {
     background-color: black;
-    height: 80px;
+    height: 100px;
     width: 100%;
     display: grid;
-    grid-template-columns: 100px auto 20%;
-}
-.burger
-{
-   display: none;
-   flex-direction: column;
-   justify-content: center;
-}
-.line
-{
-    height: 4px;
-    width: 26px;
-    background: white;
-    margin: 4px auto;
-    border-radius: 4px;
-}
-.all-lines{
+    grid-template-columns: 0.5fr 5fr 1fr;
+    align-content: center;
+    justify-items: center;
     padding: 20px;
-    background-color: #ffb900;
-    border-radius: 50px;
-    width: 67px;
 }
-
 .home
 {
-    display: flex;
-    margin: auto;
-}
-.home a
-{
-    display: flex;
-    align-items: center;
+	grid-column: 1/2;
 }
 .homeimg 
 {
@@ -47,14 +23,20 @@ nav
     content:url("https://github.com/billafy/furniture-react/blob/main/components/home0.png?raw=true");
     transition: all 0.5s ease;
 }
-.left,.right
+.left
 {
-    margin: auto 0px;
+	grid-column: 2/3;
+	justify-self: left;
+	margin-left: 10px;
 }
 .left ul
 {
-    display: flex;
-    list-style: none;
+	display: flex;
+	list-style-type: none;
+}
+.left ul li
+{
+	margin-right: 10px;
 }
 .left ul a
 {
@@ -64,22 +46,21 @@ nav
     background-color: #303030;
     font-size: 20px;
     border-radius: 50px;
-    margin: 0px 2px;
+    display: flex;
+	justify-items: center;
 }
 .left ul a:hover
 {
-    background-color: #ffb900;
-    transition: all 0.3s ease;
+	background: #ffb900;
 }
-.carticon{
-    display: flex;
+.right
+{
+	grid-column: 3/4;
+	justify-self: right;
 }
 .right a
 {
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 67px;
     height: 67px;
     padding: 20px;
@@ -94,25 +75,73 @@ nav
     background-color: #ffb900;
     transition: all 0.3s ease;
 }
-@media only screen and (max-width: 768px) 
+.burger button
 {
-    nav
-    {
-        grid-template-columns: 100px auto 15% 75px;  
-    }
-    .burger
-    {
-        display: flex;
-    }
+    outline: none;
+    border: 0px;
 }
-@media only screen and (max-width: 686px)
+.line
 {
-    nav
-    {
-        grid-template-columns: 100px auto 74px;  
-    }
-    .left
-    {
-        display: none;
-    }
+    height: 4px;
+    width: 26px;
+    background: white;
+    margin: 4px auto;
+    border-radius: 4px;
+}
+.all-lines
+{
+    padding: 20px;
+    background-color: #303030;
+    border-radius: 50px;
+    width: 67px;
+}
+.all-lines:hover
+{
+    background-color: #ffb900;
+}
+@media (min-width: 0px) and (max-width: 768px)
+{
+	nav
+	{
+		grid-template-columns: 20% 65% 15%;
+		grid-template-rows: 1fr auto;
+	    align-content: center;
+	    justify-items: center;
+	    height: auto;
+	}
+	.left
+	{
+		grid-row: 2/3;
+		grid-column: 1/2;
+		margin-top: 10px;
+		justify-self: center;
+	}
+	.left ul
+	{
+		display: block;
+	}
+	.left ul li
+	{
+		margin-bottom: 10px;
+	}
+	.left ul li a
+	{
+		padding: 0px;
+		background: black;
+	}
+	.left ul a:hover
+	{
+		color: #ffb900;
+		background: black;
+	}
+	.right
+	{
+		grid-column: 2/3;
+		justify-self: right;
+	}
+	.burger
+	{
+		grid-column: 3/4;
+		justify-self: right;
+	}
 }

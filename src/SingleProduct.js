@@ -1,5 +1,5 @@
 import React, {useEffect, useContext} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {AppContext} from './App';
 import Loading from './Loading';
 
@@ -9,7 +9,7 @@ const SingleProduct = () => {
 
 	useEffect(() => {
 		getProducts('SINGLE_PRODUCT',id,0);
-	}, []);
+	}, [id, getProducts]);
 
 	if(singleProductLoading)
 		return <Loading/>;
