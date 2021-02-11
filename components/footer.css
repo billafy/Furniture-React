@@ -103,7 +103,7 @@ background-color: #3D5B94;
 @media only screen and (max-width: 768px) {
 .social{
     display: grid;
-    grid-template-columns: 107px 98px;
+    grid-template-columns: 122px 110px;
     grid-template-rows: 57px 57px;
 }
 .gototop a{
@@ -122,7 +122,7 @@ background-color: #3D5B94;
   }
 
 }
-@media only screen and (max-width: 436px) {
+@media only screen and (max-width: 490px) {
     .copyright {
         align-items: flex-end;
     }
@@ -134,7 +134,7 @@ background-color: #3D5B94;
         left: 6px;
     }
     .copyright p {
-        padding: 8px;
+        padding: 4px;
     }
 }
  
