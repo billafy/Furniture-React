@@ -115,6 +115,7 @@ nav
 		grid-column: 1/2;
 		margin-top: 10px;
 		justify-self: center;
+		transition: all 4s;
 	}
 	.left ul
 	{

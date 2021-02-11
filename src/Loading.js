@@ -1,9 +1,13 @@
 import React from 'react';
+import './utils/loading.css';
+import {GiSofa} from 'react-icons/gi';
 
 const Loading = () => {
 	return (
 		<>
-			<h3>Loading</h3>
+			<div className='loading'>
+				<GiSofa/>
+			</div>
 		</>	
 	);
 }

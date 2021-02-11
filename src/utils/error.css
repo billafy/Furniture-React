@@ -1,0 +1,44 @@
+/*body
+{
+  background-image: linear-gradient(125deg,#ffb900,white);
+}*/
+.error
+{
+  width: 50%;
+  margin:auto;
+  margin-top: 50px;
+  text-align: center;
+  color: #343434
+}
+.error h1
+{
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 20px;
+}
+.error a
+{
+  text-decoration: none;
+  background: orange;
+  color: black;
+  padding: 12px 24px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.4s;
+  margin-top: 20px;
+}
+.error a:hover
+{
+  color: white;
+  background: black;
+}
+@media (min-width: 0px) and (max-width:768px)
+{
+  .error h1
+  {
+
+  }
+}

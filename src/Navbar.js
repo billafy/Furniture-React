@@ -11,8 +11,6 @@ const Navbar = () => {
 
 	useEffect(() => {
 		window.addEventListener('resize',() => setWidth(window.innerWidth));
-		if(width>768)
-			setShowDropDown(true);
 		return () => {
 			window.removeEventListener('resize',() => setWidth(window.innerWidth));
 		}
@@ -21,24 +19,24 @@ const Navbar = () => {
 	return (
 		<nav>
 			<div className="home">
-				<Link to='/'>
+				<Link to='/' onClick={()=>setShowDropDown(false)}>
 					<img className="homeimg"
 						src={furniturehome}
 						alt="home"/>
 				</Link>
 			</div>
-			{showDropDown &&
+			{(showDropDown || width>768) &&
 				<div className="left">
 					<ul>
 						{navlinks.map((link) => {
 							return (
-								<li key={link.id}><Link to={link.to}>{link.title}</Link></li>
+								<li key={link.id}><Link to={link.to} onClick={()=>setShowDropDown(false)}>{link.title}</Link></li>
 							);
 						})}
 					</ul>
 				</div>}
 			<div className="right">
-				<Link to='/cart'><span><FaShoppingCart/></span></Link>
+				<Link to='/cart' onClick={()=>setShowDropDown(false)}><span><FaShoppingCart/></span></Link>
 			</div>
 			{width<768 && 
 				<div className="burger">

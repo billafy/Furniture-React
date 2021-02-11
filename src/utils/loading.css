@@ -1,0 +1,22 @@
+.loading
+{
+	width:40%;
+	margin: auto;
+	text-align: center;
+	margin-top: 100px;
+	font-size: 4rem;
+	color: #ffb900;
+	animation: grow 1s infinite linear;
+}
+@keyframes grow
+{	
+	50%
+	{
+		opacity: 0.7;
+		transform: scale(1.5);
+	}
+	100%
+	{
+		transform: scale(1);
+	}
+}
