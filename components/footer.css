@@ -103,7 +103,7 @@ background-color: #3D5B94;
 @media only screen and (max-width: 768px) {
 .social{
     display: grid;
-    grid-template-columns: 106px 97px;
+    grid-template-columns: 107px 98px;
     grid-template-rows: 57px 57px;
 }
 .gototop a{
