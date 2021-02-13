@@ -4,22 +4,77 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory; 
     border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
+.slider::-webkit-scrollbar {
+  display: none;
+  }
   .slide {
     width: 100%;
     flex-shrink: 0;
     scroll-snap-align: start;
+    display: flex;
   }
   .carousel{
-      height: 100%;
       margin-top: 2%;
   }
 .slide img{
     width: 100%;
 }
+.dots {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  bottom: 5px;
+  width: 100%;
+}
 .dots a{
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: black;
+    background-color: #303030;
+    border: 2px solid white;
+}
+.dots a:hover{
+  background-color: #ffb900;
+}
+.left,.right{
+  height: 7.3%;
+  width: 5%;
+  top: 45%;
+  background-color: rgba(201, 201, 201, 0.699);
+  border: none;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.left:hover,.right:hover{
+  background-color: #ffbb0091;
+}
+.right{
+  position: absolute;
+  right: 0px;
+}
+.left{
+  position: absolute;
+  left: 0px;
+}
+.homepage{
+  text-align: center;
+}
+.fph{
+  padding: 20px;
+  margin: 40px 0px 0px 0px;
+}
+.fp{
+  padding: 20px;
+}
+.fp img{
+height: 722px;
+}
+.fproducts{
+display: grid;
+grid-template-columns: auto auto auto auto auto auto;
+overflow: auto;
 }
