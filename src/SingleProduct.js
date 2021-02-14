@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 const SingleProduct = () => {
 	const {id} = useParams();
-	const {state:{selectedProduct, singleProductLoading},getProducts} = useContext(AppContext);
+	const {state:{selectedProduct, singleProductLoading},getProducts,addToCart} = useContext(AppContext);
 
 	useEffect(() => {
 		getProducts('SINGLE_PRODUCT',id,0);
@@ -16,6 +16,7 @@ const SingleProduct = () => {
 	return (
 		<>
 			<h3>{selectedProduct.name}</h3>
+			<button onClick={()=>addToCart(selectedProduct.id)}>Add To Cart</button>
 		</>	
 	);
 }

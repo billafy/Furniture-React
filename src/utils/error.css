@@ -4,7 +4,8 @@
 }*/
 .error
 {
-  width: 50%;
+  min-width: 50%;
+  max-width:auto;
   margin:auto;
   margin-top: 50px;
   text-align: center;
@@ -15,7 +16,6 @@
   font-size: 3rem;
   margin: 0;
   font-weight: 900;
-  letter-spacing: 20px;
 }
 .error a
 {
@@ -34,11 +34,4 @@
 {
   color: white;
   background: black;
-}
-@media (min-width: 0px) and (max-width:768px)
-{
-  .error h1
-  {
-
-  }
 }

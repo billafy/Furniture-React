@@ -146,3 +146,10 @@ nav
 		justify-self: right;
 	}
 }
+@media (min-width: 0px) and (max-width: 460px)
+{
+	.right
+	{
+		justify-self: center;
+	}
+}

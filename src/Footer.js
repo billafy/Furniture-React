@@ -38,8 +38,8 @@ const socialLinks = [
 const Footer = () => {
 	return (
 		<footer>
-	        <div class="top">
-	            <div class="about">
+	        <div className="top">
+	            <div className="about">
 	                <h2>About</h2>
 	                <p>
 	                	Furniture refers to movable objects intended to support various human activities such as seating 
@@ -48,23 +48,23 @@ const Footer = () => {
 	                	In addition to furniture's functional role, it can serve a symbolic or religious purpose.
 	                </p>
 	            </div>
-	            <div class="links-address">		            
-	                <div class="address">
+	            <div className="links-address">		            
+	                <div className="address">
 	                    <h2>Address</h2>
-	                    <a class="link" href="https://goo.gl/maps/Aj1XuU11aPWX5b4SA">
+	                    <a className="link" href="https://goo.gl/maps/Aj1XuU11aPWX5b4SA">
 	                    	Game Circle, Discord
 	                    </a>
 	                </div>
 	            </div>
 	        </div>
-	        <div class="bottom">
-	            <div class="copyright">
+	        <div className="bottom">
+	            <div className="copyright">
 	                <p>&copy; 2021 - Organisation</p>
 	            </div>
-	            <div class="gototop">
+	            <div className="gototop">
 	        		<a href=""><BsArrowUp/></a>
 	   			 </div>	
-	            <div class="social">
+	            <div className="social">
 	                <ul>
 	                	{socialLinks.map((socialLink) => {
 	                			return (

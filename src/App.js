@@ -19,7 +19,11 @@ const defaultStates = {
 	products: [],
 	selectedProduct : {},
 	productsLoading: true,
-	singleProductLoading: true
+	singleProductLoading: true,
+	cart: [],
+	cartQuantity: 0,
+	cartPrice: 0,
+	featuredProducts: []
 };
 
 export const AppContext = React.createContext();
@@ -34,6 +38,26 @@ const App = () => {
 		dispatch({type:type,payload:{data,id,filterTerm}});
 	}
 
+	const addToCart = (id) => {
+		dispatch({type:'ADD_CART',payload:id});
+	}
+
+	const clearCart = () => {
+		dispatch({type:'CLEAR_CART'});
+	}
+
+	const removeFromCart = (id) => {
+		dispatch({type:'REMOVE_CART',payload:id});
+	}
+
+	const incrementCartItem = (id) => {
+		dispatch({type:'INCREMENT_CART',payload:id});
+	}
+
+	const decrementCartItem = (id) => {
+		dispatch({type:'DECREMENT_CART',payload:id});
+	}
+
 	useEffect(() => {
 		window.addEventListener('resize',() => setHeight(window.innerHeight));
 		return () => {
@@ -42,7 +66,7 @@ const App = () => {
 	}, [height]);
 
 	return (
-		<AppContext.Provider value={{state,getProducts}}>
+		<AppContext.Provider value={{state,getProducts,addToCart,clearCart,removeFromCart,incrementCartItem,decrementCartItem}}>
 			<Router>
 				<Navbar/>
 				<section style={{minHeight:height-100,maxHeight:'auto'}}>
