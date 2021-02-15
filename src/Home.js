@@ -6,7 +6,7 @@ const Home = () => {
 
 	useEffect(() => {
 		getProducts('FEATURED_PRODUCTS',0,0);
-	}, [getProducts]);
+	}, []);
 
 	return (
 		<>

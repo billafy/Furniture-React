@@ -1,6 +1,15 @@
-*{
+*
+{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Segoe UI';
+}
+button
+{
+	outline: none;
+}
+ul
+{
+	list-style-type: none;
 }

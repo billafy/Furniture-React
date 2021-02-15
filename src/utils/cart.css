@@ -1,0 +1,179 @@
+.empty-cart
+{
+	width: 40%;
+	margin: auto;
+	text-align: center;
+	margin-top: 50px;
+}
+.empty-cart h1
+{
+	font-size: 3rem;
+}
+.empty-cart p
+{
+	color: rgba(0,0,0,0.7);
+	margin-top: 10px;
+}
+.empty-cart button
+{
+	width: 125px;
+	height: 50px;
+	margin-top: 20px;
+	font-size: 14px;
+	background: #ffb900;
+	color: black;
+	display: inline-block;
+	border-radius: 25px;
+	text-transform: uppercase;
+	border: 0px;
+}
+.empty-cart button:hover
+{
+	background-color: black;
+	color: white;
+}
+
+.cart
+{
+	width: 50%;
+	margin: auto;
+	margin-top: 50px;
+}
+.cart h1
+{
+	font-size: 3rem;
+	text-align: center;
+}
+.cart-items
+{
+	display: grid;
+	grid-template-columns: auto;
+	grid-gap: 10px;
+	background-color: #ffb900;
+	padding: 10px;
+	margin-top: 10px;
+	box-shadow: 0px 3px 5px black;
+}
+.cart-item
+{
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	align-content: center;
+	align-items: center;
+	padding: 10px;
+	color: white;
+	background-color: black;
+}
+.cart-item img
+{
+	width: 100%;
+}
+.cart-item-details
+{
+	text-transform: capitalize;
+	justify-self: left;
+	padding-left: 10px;
+	font-size: 0.8em;
+}
+.cart-item-name
+{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.cart-item-details button
+{
+	border:0px;
+	background-color: transparent;
+	color: #ffb900;
+	margin-top: 5px;
+}
+.cart-item-details button:hover
+{
+	color: white;
+}
+.cart-inc-dec
+{
+	text-align: center;
+}
+.cart-inc-dec svg:hover
+{
+	color: #ffb900;
+}
+.cart-details
+{
+	text-align: center;
+	margin-top: 20px;
+}
+.cart-details p
+{
+	font-size: 1.3rem;
+	margin-bottom: 15px;
+}
+.cart-details p span
+{
+	background-color: #ffb900;
+	border-radius: 3px;
+	color: white;
+	padding: 0px 5px 0px 5px;
+}
+.cart-details button
+{
+	width: 100px;
+	height: 30px;
+	border: 0px;
+	background-color: #ffb900;
+	border-radius: 25px;
+	font-size: 14px;
+}
+.cart-details button:hover
+{
+	color: white;
+	background-color: black;
+}
+.cart-order
+{
+	text-align: center;
+	margin-top: 20px;
+}
+.cart-order textarea
+{
+	width: 300px;
+	height: 150px;
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 3px;
+	outline: none;
+	color: black;
+}
+.cart-order textarea:focus
+{
+	background-color: rgba(0,0,0,0.1);
+}
+.cart-order button
+{
+	width: 100px;
+	height: 30px;
+	border: 0px;
+	background-color: #ffb900;
+	border-radius: 25px;
+	font-size: 14px;
+}
+.cart-order button:hover
+{
+	color: white;
+	background-color: black;
+}
+@media (min-width: 768px) and (max-width: 1302px)
+{
+	.cart
+	{
+		width: 75%;
+	}
+}
+@media (min-width: 0px) and (max-width: 768px)
+{
+	.cart
+	{
+		width: 95%;
+	}
+}

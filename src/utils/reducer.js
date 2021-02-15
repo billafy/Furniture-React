@@ -1,6 +1,5 @@
 export const reducer = (state,action) => {
 	if(action.type==='ALL_PRODUCTS') {
-		console.log(action.payload.data);
 		return {
 			...state, 
 			products:action.payload.data, 
@@ -128,7 +127,7 @@ export const reducer = (state,action) => {
 		return {
 			...state,
 			cart: [],
-			cartQuantiy: 0,
+			cartQuantity: 0,
 			cartPrice: 0
 		};
 	}
