@@ -1,0 +1,162 @@
+.jumbotron
+{
+	text-align: center;
+	margin: auto;
+}
+.jumbotron img
+{
+	width: 100%;
+}
+.advertisement
+{
+	width: 60%;
+	margin:auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	margin-top: 50px;
+}
+.advertisement img
+{
+	width: 75%;
+}
+.advertisement p
+{
+	color: rgba(0,0,0,0.7);
+}
+.advertisement button
+{
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+	color: black;
+	border: 0px;
+	border-radius: 25px;
+	background-color: #ffb900;
+}
+.advertisement button:hover
+{
+	background-color: black;
+	color: white;
+}
+.featured-products
+{
+	width: 100%;
+	margin-top: 50px;
+	text-transform: capitalize;
+}
+.featured-products h3
+{
+	text-align: center;
+}
+.fp-list
+{
+	display: grid;
+	grid-template-columns: repeat(3,33%);
+	margin-top: 30px;
+}
+.fp-item
+{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 250px auto;
+	justify-items: center;
+	border-left: 1px solid lightblue;
+}
+.fp-item img
+{
+	height: 100%;
+	max-width: 80%;
+}
+.fp-item p
+{
+	margin-top: 5px;
+}
+.fp-slider
+{
+	display: grid;
+	grid-template-columns: 10% auto 10%;
+	justify-items: center;
+	align-items: center;
+	margin-top: 30px;
+}
+.fp-slider svg
+{
+	font-size: 1.6em;
+	color: black;
+}
+.fp-slider svg:hover
+{
+	font-size: 1.8em;
+}
+.fp-slider .fp-item
+{
+	grid-template-rows: 150px auto;
+	border: 0px;
+}
+.fp-slider .fp-item img
+{
+	height: 100%;
+}
+.subscribe-mail
+{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.subscribe-mail p
+{
+	color: rgba(0,0,0,0.7);
+	margin-top: 5px;
+}
+.subscribe-mail input
+{
+	width: 40%;
+	max-width: auto;
+	height: 40px;
+	margin-top: 10px;
+	border: 3px solid #ffb900;
+	padding-left: 20px;
+	outline: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+.subscribe-mail button
+{
+	width: 10%;
+	max-width: auto;
+	height: 40px;
+	margin-top: 10px;
+	border: 0px;
+	background-color: #ffb900;
+	border-top-right-radius: 24px;
+	border-bottom-right-radius: 25px;
+	font-size: 14px;
+}
+.subscribe-mail button:hover
+{
+	color: white;
+	cursor: pointer;
+}
+@media (min-width: 0px) and (max-width: 868px)
+{
+	.fp-item
+	{
+		grid-template-rows: 150px auto;
+	}
+	.advertisement
+	{
+		grid-template-columns: 1fr;
+		justify-items: center;
+		grid-row-gap: 10px;
+		text-align: center;
+	}
+	.subscribe-mail input
+	{
+		width: 70%;
+	}
+	.subscribe-mail button
+	{
+		width: 20%;
+	}
+}

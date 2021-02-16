@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './utils/navbar.css';
 import { navlinks } from './utils/constants';
 import { FaShoppingCart } from 'react-icons/fa';
-import furniturehome from './utils/furniturehome.png';
+import logo from './utils/furniturehome.png';
 
 const Navbar = () => {
 	const [width, setWidth] = useState(window.innerWidth);
@@ -21,7 +21,7 @@ const Navbar = () => {
 			<div className="home">
 				<Link to='/' onClick={()=>setShowDropDown(false)}>
 					<img className="homeimg"
-						src={furniturehome}
+						src={logo}
 						alt="home"/>
 				</Link>
 			</div>

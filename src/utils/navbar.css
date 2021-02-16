@@ -15,13 +15,8 @@ nav
 }
 .homeimg 
 {
-    height: 61px; 
-    width: 80px;
-}
-.homeimg:hover
-{
-    content:url("https://github.com/billafy/furniture-react/blob/main/components/home0.png?raw=true");
-    transition: all 0.5s ease;
+	height: 61px;
+	width: 82px;
 }
 .left
 {

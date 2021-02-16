@@ -43,8 +43,8 @@ const Cart = () => {
 						})}
 				</div>
 				<div className='cart-details'>
-					<p>Number of Items <span>{cartQuantity}</span></p>
-					<p>Total Price <span>{cartPrice}</span></p>
+					<p>Number of Items <span> {cartQuantity} </span></p>
+					<p>Total Price <span> ${cartPrice} </span></p>
 					<button onClick={()=>clearCart()}>Clear Cart</button>
 				</div>
 				<div className='cart-order'>
