@@ -4,9 +4,10 @@ import './utils/home.css';
 import {Link} from 'react-router-dom';
 import GCF from './utils/gcf.png';
 import {AiOutlineLeft, AiOutlineRight} from 'react-icons/ai';
+import Loading from './Loading';
 
 const Home = () => {
-	const {state:{featuredProducts}, getProducts} = useContext(AppContext);
+	const {state:{featuredProducts, featuredProductsLoading}, getProducts} = useContext(AppContext);
 	const [width, setWidth] = useState(window.innerWidth);
 	const [currentProductIndex, setCurrentProductIndex] = useState(0);
 
@@ -28,13 +29,13 @@ const Home = () => {
 
 	const selectPrevProduct = () => {
 		if(currentProductIndex===0)
-			setCurrentProductIndex(2);
+			setCurrentProductIndex(featuredProducts[featuredProducts.length-1]);
 		else
 			setCurrentProductIndex(currentProductIndex-1);
 	}
 
 	const selectNextProduct = () => {
-		if(currentProductIndex===2)
+		if(currentProductIndex===featuredProducts.length-1)
 			setCurrentProductIndex(0);
 		else
 			setCurrentProductIndex(currentProductIndex+1);
@@ -61,11 +62,12 @@ const Home = () => {
 			</div>	
 			<div className='featured-products'>
 				<h3>Featured Products</h3>
-				{width > 868 
+				{!featuredProductsLoading 
 					?
-					<div className='fp-list'>
-						{featuredProducts && 
-							featuredProducts.map(product => {
+						width > 868 
+						?
+						<div className='fp-list'>
+							{featuredProducts.map(product => {
 								if(product)
 									return (
 										<div className='fp-item' key={product.id}>
@@ -73,19 +75,21 @@ const Home = () => {
 											<p>{product.name}</p>							
 										</div>	
 									);
-						})}	
-					</div>	
+							})}	
+						</div>	
+						:
+						<div className='fp-slider'>
+							<AiOutlineLeft onClick={selectPrevProduct}/>
+							{featuredProducts[currentProductIndex] &&
+								<div className='fp-item'>
+									<img src={featuredProducts[currentProductIndex].image}/>
+									<p>{featuredProducts[currentProductIndex].name}</p>							
+								</div>
+							}
+							<AiOutlineRight onClick={selectNextProduct}/>						
+						</div>
 					:
-					<div className='fp-slider'>
-						<AiOutlineLeft onClick={selectPrevProduct}/>
-						{featuredProducts[currentProductIndex] && 
-							<div className='fp-item'>
-								<img src={featuredProducts[currentProductIndex].image}/>
-								<p>{featuredProducts[currentProductIndex].name}</p>							
-							</div>
-						}
-						<AiOutlineRight onClick={selectNextProduct}/>						
-					</div>
+					<Loading/>
 				}		
 			</div>
 			<div className='subscribe-mail'>

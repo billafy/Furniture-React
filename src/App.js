@@ -23,7 +23,8 @@ const defaultStates = {
 	cart: [],
 	cartQuantity: 0,
 	cartPrice: 0,
-	featuredProducts: []
+	featuredProducts: [],
+	featuredProductsLoading: true
 };
 
 export const AppContext = React.createContext();

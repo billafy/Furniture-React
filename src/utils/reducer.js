@@ -4,7 +4,8 @@ export const reducer = (state,action) => {
 			...state, 
 			products:action.payload.data, 
 			productsLoading:false, 
-			singleProductLoading:true
+			singleProductLoading:true,
+			featuredProductsLoading: true
 		};
 	}
 	else if(action.type==='SINGLE_PRODUCT') {
@@ -13,7 +14,8 @@ export const reducer = (state,action) => {
 			...state,
 			selectedProduct:selectedProduct[0], 
 			singleProductLoading:false, 
-			productsLoading:true
+			productsLoading:true,
+			featuredProductsLoading: true
 		};		
 	}
 	else if(action.type==='FEATURED_PRODUCTS') {
@@ -24,7 +26,8 @@ export const reducer = (state,action) => {
 				action.payload.data[randomIndex],
 				action.payload.data[randomIndex+1],
 				action.payload.data[randomIndex+2]
-			]
+			],
+			featuredProductsLoading: false,
 		};	
 	}
 	else if(action.type==='FILTER_COMPANY') {
