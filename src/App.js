@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from "react";
+import React, {useState, useEffect, useReducer} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {reducer} from './utils/reducer';
 
@@ -24,7 +24,11 @@ const defaultStates = {
 	cartQuantity: 0,
 	cartPrice: 0,
 	featuredProducts: [],
-	featuredProductsLoading: true
+	featuredProductsLoading: true,
+	categories: ['all'],
+	companies: ['all'],
+	minPrice: 0,
+	maxPrice: 0,
 };
 
 export const AppContext = React.createContext();

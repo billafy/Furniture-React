@@ -8,7 +8,7 @@ const SingleProduct = () => {
 	const {state:{selectedProduct, singleProductLoading},getProducts,addToCart} = useContext(AppContext);
 
 	useEffect(() => {
-		getProducts('SINGLE_PRODUCT',id,0);
+		getProducts('SINGLE_PRODUCT',id);
 	}, [id, getProducts]);
 
 	if(singleProductLoading)

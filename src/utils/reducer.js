@@ -1,11 +1,26 @@
 export const reducer = (state,action) => {
 	if(action.type==='ALL_PRODUCTS') {
+		let minPrice = Number.POSITIVE_INFINITY, maxPrice = Number.NEGATIVE_INFINITY;
+		const categories = [...new Set(action.payload.data.map(product => {
+			if(product.price < minPrice)
+				minPrice = product.price;
+			if(product.price > maxPrice)
+				maxPrice = product.price;
+			return product.category;
+		}))];
+		const companies = [...new Set(action.payload.data.map(product => product.company))];
+		console.log(minPrice);
+		console.log(maxPrice);
 		return {
 			...state, 
 			products:action.payload.data, 
 			productsLoading:false, 
 			singleProductLoading:true,
-			featuredProductsLoading: true
+			featuredProductsLoading: true,
+			categories: categories,
+			companies: companies,
+			minPrice: minPrice,
+			maxPrice: maxPrice,
 		};
 	}
 	else if(action.type==='SINGLE_PRODUCT') {
@@ -30,16 +45,19 @@ export const reducer = (state,action) => {
 			featuredProductsLoading: false,
 		};	
 	}
-	else if(action.type==='FILTER_COMPANY') {
-		const newProducts = state.products.filter(product => product.company===action.payload.filterTerm);
-		return {...state, products:newProducts};
-	}
-	else if(action.type==='FILTER_PRICE_RANGE') {
-		const newProducts = state.products.filter(product => product.price===action.payload.filterTerm);
-		return {...state, products:newProducts};
-	}
-	else if(action.type==='FILTER_CATEGORY') {
-		const newProducts = state.products.filter(product => product.category===action.payload.filterTerm);
+	else if(action.type==='FILTER') {
+		let newProducts = action.payload.data;
+		const {searchTerm, category, price, company} = action.payload.filterTerm;
+		if(searchTerm!=='') {
+			newProducts = newProducts.filter(product => product.name.toLowerCase().startsWith(searchTerm.toLowerCase()));
+		}
+		if(category!=='all') {
+			newProducts = newProducts.filter(product => product.category===category);
+		}
+		if(company!=='all') {
+			newProducts = newProducts.filter(product => product.company===company);
+		}
+		newProducts = newProducts.filter(product => product.price<=price);
 		return {...state, products:newProducts};
 	}
 	else if(action.type==='ADD_CART') {

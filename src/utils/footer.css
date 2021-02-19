@@ -56,8 +56,6 @@ footer
 .copyright
 {
 		align-items: center;
-		text-align: center;
-		width: 100%;
 }
 .copyright p
 {
@@ -113,10 +111,11 @@ footer
 {
 	.social
 	{
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-			grid-column: 3/4;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		grid-column: 1/2;
+		grid-row: 2/3;
 	}
 	.social a
 	{
@@ -133,20 +132,6 @@ footer
 	}
 	.bottom
 	{
-		grid-template-columns: 1fr 30px 1fr;
-		grid-template-rows: auto auto;
-	}
-	.gototop
-	{
-		grid-column: 2/3;
-		grid-row: 2/3;
-	}
-}
-
-@media (min-width: 0px) and (max-width: 360px)
-{
-	.bottom
-	{
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(3,auto);
 		grid-gap: 10px;
@@ -157,9 +142,9 @@ footer
 		grid-column: 1/2;
 		grid-row: 3/4;
 	}
-	.social
+	.copyright
 	{
-		grid-column: 1/2;
-		grid-row: 2/3;
+		text-align: center;
+		width: 100%;
 	}
 }

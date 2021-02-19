@@ -12,8 +12,7 @@ const Home = () => {
 	const [currentProductIndex, setCurrentProductIndex] = useState(0);
 
 	useEffect(() => {
-		getProducts('FEATURED_PRODUCTS',0,0);
-		console.log(featuredProducts[0]);
+		getProducts('FEATURED_PRODUCTS',0);
 	}, []);
 
 	useEffect(() => {
@@ -29,7 +28,7 @@ const Home = () => {
 
 	const selectPrevProduct = () => {
 		if(currentProductIndex===0)
-			setCurrentProductIndex(featuredProducts[featuredProducts.length-1]);
+			setCurrentProductIndex(featuredProducts.length-1);
 		else
 			setCurrentProductIndex(currentProductIndex-1);
 	}

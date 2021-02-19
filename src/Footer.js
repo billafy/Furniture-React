@@ -16,21 +16,21 @@ const socialLinks = [
 		id:2,
 		title: 'Facebook',
 		icon: <FaFacebook/>,
-		link: 'www.facebook.com',
+		link: 'https://www.facebook.com',
 		color: '#3D5B94',
 	},
 	{
 		id:3,
 		title: 'Twitter',
 		icon: <FaTwitter/>,
-		link: 'www.twitter.com',
+		link: 'https://www.twitter.com',
 		color: '#3DACDD',
 	},
 	{
 		id:4,
 		title: 'LinkedIn',
 		icon: <FaLinkedin/>,
-		link: 'www.linkedin.com',
+		link: 'https://www.linkedin.com',
 		color: '#1E83AE',
 	}
 ];

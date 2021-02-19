@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import './utils/navbar.css';
 import { navlinks } from './utils/constants';
 import { FaShoppingCart } from 'react-icons/fa';
 import logo from './utils/furniturehome.png';
+import {AppContext} from './App';
 
 const Navbar = () => {
+	const {state: {cartQuantity}} = useContext(AppContext);
 	const [width, setWidth] = useState(window.innerWidth);
 	const [showDropDown, setShowDropDown] = useState(false);
 
@@ -36,7 +38,10 @@ const Navbar = () => {
 					</ul>
 				</div>}
 			<div className="right">
-				<Link to='/cart' onClick={()=>setShowDropDown(false)}><span><FaShoppingCart/></span></Link>
+				<Link to='/cart' onClick={()=>setShowDropDown(false)}>
+					<span><FaShoppingCart/></span>
+					<div className='nav-cart-qty'>{cartQuantity}</div>
+				</Link>
 			</div>
 			{width<768 && 
 				<div className="burger">

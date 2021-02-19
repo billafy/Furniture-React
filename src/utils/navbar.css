@@ -1,3 +1,7 @@
+a
+{
+	text-decoration: none;
+}
 nav
 {
     background-color: black;
@@ -69,6 +73,19 @@ nav
 {
     background-color: #ffb900;
     transition: all 0.3s ease;
+}
+.nav-cart-qty
+{
+	position: relative;
+	top: -50px;
+	left: 30px;
+	background-color: red;
+	padding: 0px;
+	height: 32px;
+	width: 32px;
+	max-width: auto;
+	text-align: center;
+	border-radius: 50%;
 }
 .burger button
 {
