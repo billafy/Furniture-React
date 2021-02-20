@@ -43,8 +43,8 @@ const App = () => {
 		dispatch({type:type,payload:{data,id,filterTerm}});
 	}
 
-	const addToCart = (id) => {
-		dispatch({type:'ADD_CART',payload:id});
+	const addToCart = async (selectedProduct) => {
+		dispatch({type:'ADD_CART',payload:selectedProduct});
 	}
 
 	const clearCart = () => {

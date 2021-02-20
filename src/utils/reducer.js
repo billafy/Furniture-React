@@ -61,10 +61,10 @@ export const reducer = (state,action) => {
 		return {...state, products:newProducts};
 	}
 	else if(action.type==='ADD_CART') {
-		const cartItems = state.cart.filter(item => item.product.id===action.payload);
+		const cartItems = state.cart.filter(item => item.product.id===action.payload.id);
 		if(cartItems.length > 0) {
 			const newCart = state.cart.map(item => {
-				if(item.product.id===action.payload)
+				if(item.product.id===action.payload.id)
 					return {
 						...item,
 						quantity: item.quantity + 1,
@@ -74,7 +74,8 @@ export const reducer = (state,action) => {
 			});
 			return {...state, cart:newCart, cartQuantity:state.cartQuantity+1, cartPrice:state.cartPrice+cartItems[0].product.price};
 		} 
-		const cartProduct = state.products.filter(product => product.id===action.payload)[0];
+		const cartProduct = action.payload;
+		console.log(cartProduct);
 		return {
 			...state, 
 			cart: [
