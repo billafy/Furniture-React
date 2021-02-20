@@ -53,11 +53,11 @@ const Products = () => {
 					{(width > 768 || showFilters) &&
 						<div className='filters'>
 							<div className='category-buttons'>
-								<button value='all' className='category-button' onClick={()=>setCategory('all')}>All</button>
-								{categories.map(category => {
+								<button value='all' className={category==='all'?'selected':''} onClick={()=>setCategory('all')}>All</button>
+								{categories.map(cat => {
 										return (
-											<button value={category} className='category-button' onClick={(event)=>setCategory(event.target.value)}>
-												{category}
+											<button value={cat} className={category===cat?'selected':''} onClick={(event)=>setCategory(event.target.value)}>
+												{cat}
 											</button>
 										);
 									})}

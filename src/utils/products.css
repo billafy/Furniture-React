@@ -46,6 +46,10 @@
 {
 	background-color: black;
 }
+.selected
+{
+	background-color: black !important;
+}
 .price-slider
 {
 	margin-top: 20px;
@@ -134,6 +138,16 @@
 	grid-row: 2/3;
 	grid-column: 1/2;
 	padding: 15px;
+}
+.product-details h6
+{
+	font-size: 1em;
+	font-weight: normal;
+}
+.product-details p
+{
+	font-size: 0.8em;
+	color: skyblue;
 }
 .product span
 {
