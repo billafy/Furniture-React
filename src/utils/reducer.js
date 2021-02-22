@@ -8,11 +8,12 @@ export const reducer = (state,action) => {
 				maxPrice = product.price;
 			return product.category;
 		}))];
-		const companies = [...new Set(action.payload.data.map(product => product.company))];
-		console.log(minPrice);
-		console.log(maxPrice);
+		const companies = [...new Set(action.payload.data.map(product => { 
+			return product.company;
+		}))];
 		return {
 			...state, 
+			allProducts: action.payload.data,
 			products:action.payload.data, 
 			productsLoading:false, 
 			singleProductLoading:true,
@@ -27,6 +28,7 @@ export const reducer = (state,action) => {
 		const selectedProduct = action.payload.data.filter(product => action.payload.id===product.id);
 		return {
 			...state,
+			allProducts: action.payload.data,
 			selectedProduct:selectedProduct[0], 
 			singleProductLoading:false, 
 			productsLoading:true,
@@ -37,6 +39,7 @@ export const reducer = (state,action) => {
 		const randomIndex = Math.floor((Math.random()*action.payload.data.length-4) + 1)	
 		return {
 			...state,
+			allProducts: action.payload.data,
 			featuredProducts: [
 				action.payload.data[randomIndex],
 				action.payload.data[randomIndex+1],
@@ -58,7 +61,7 @@ export const reducer = (state,action) => {
 			newProducts = newProducts.filter(product => product.company===company);
 		}
 		newProducts = newProducts.filter(product => product.price<=price);
-		return {...state, products:newProducts};
+		return {...state, allProducts:action.payload.data, products:newProducts};
 	}
 	else if(action.type==='ADD_CART') {
 		const cartItems = state.cart.filter(item => item.product.id===action.payload.id);
@@ -75,7 +78,6 @@ export const reducer = (state,action) => {
 			return {...state, cart:newCart, cartQuantity:state.cartQuantity+1, cartPrice:state.cartPrice+cartItems[0].product.price};
 		} 
 		const cartProduct = action.payload;
-		console.log(cartProduct);
 		return {
 			...state, 
 			cart: [

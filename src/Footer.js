@@ -1,17 +1,11 @@
 import React from 'react';
 import {FaFacebook, FaTwitter, FaLinkedin} from 'react-icons/fa';
 import './utils/footer.css';
+import {Link} from 'react-router-dom';
 import {MdCall} from 'react-icons/md';
 import {BsArrowUp} from 'react-icons/bs';
 
 const socialLinks = [
-	{
-		id:1,
-		title: 'Contact Us',
-		icon: <MdCall/>,
-		link : '#',
-		color: '#6dcd9a',
-	},
 	{
 		id:2,
 		title: 'Facebook',
@@ -62,10 +56,11 @@ const Footer = () => {
 	                <p>&copy; 2021 - Organisation</p>
 	            </div>
 	            <div className="gototop">
-	        		<a href=""><BsArrowUp/></a>
+	        		<a href="#top"><BsArrowUp/></a>
 	   			 </div>	
 	            <div className="social">
 	                <ul>
+	                	<li><Link to='/about'><MdCall style={{color:'skyblue'}}/></Link></li>
 	                	{socialLinks.map((socialLink) => {
 	                			return (
 	                				<li key={socialLink.id}>

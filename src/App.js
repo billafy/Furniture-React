@@ -8,6 +8,7 @@ import Products from './Products';
 import Cart from './Cart';
 import SingleProduct from './SingleProduct';
 import About from './About';
+import Help from './Help';
 import Error from './Error';
 import Footer from './Footer';
 
@@ -16,6 +17,7 @@ import './utils/global.css';
 const url = 'https://course-api.com/react-store-products';
 
 const defaultStates = {
+	allProducts: [],
 	products: [],
 	selectedProduct : {},
 	productsLoading: true,
@@ -38,8 +40,13 @@ const App = () => {
 	const [state,dispatch] = useReducer(reducer,defaultStates);
 
 	const getProducts = async (type,id,filterTerm) => {
-		const response = await fetch(url);
-		const data = await response.json();
+		let data;
+		if(state.allProducts.length===0) {
+			const response = await fetch(url);
+			data = await response.json();
+		}
+		else 
+			data = state.allProducts;
 		dispatch({type:type,payload:{data,id,filterTerm}});
 	}
 
@@ -72,6 +79,7 @@ const App = () => {
 
 	return (
 		<AppContext.Provider value={{state,getProducts,addToCart,clearCart,removeFromCart,incrementCartItem,decrementCartItem}}>
+			<div id='top'></div>
 			<Router>
 				<Navbar/>
 				<section style={{minHeight:height-100,maxHeight:'auto'}}>
@@ -88,6 +96,9 @@ const App = () => {
 						<Route path='/product/:id' children={<SingleProduct/>}></Route>
 						<Route path='/about'>
 							<About/>
+						</Route>
+						<Route path='/help'>
+							<Help/>							
 						</Route>
 						<Route path='*'>
 							<Error/>						

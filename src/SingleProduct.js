@@ -11,7 +11,7 @@ const SingleProduct = () => {
 
 	useEffect(() => {
 		getProducts('SINGLE_PRODUCT',id);
-	}, [id, getProducts]);
+	}, [id]);
 
 	if(singleProductLoading)
 		return <Loading/>;

@@ -156,6 +156,10 @@
 	justify-self: right;
 	padding: 15px;
 }
+.no-results
+{
+	text-align: center;
+}
 @media (min-width: 768px) and (max-width: 1202px)
 {
 	.search-bar input

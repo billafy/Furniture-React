@@ -81,25 +81,30 @@ const Products = () => {
 						</div>
 					}
 				</div>
-				<div className='products-list'>
-					{products.map(product => {
-							return (
-								<Link to={'/product/'+product.id} key={product.id}>
-									<div className='product'>
-										<div className='product-image'>
-											<img src={product.image}/>
-										</div>
-										<div className='product-details'>
-											<h3>{product.name}</h3>
-											<h6>{product.company}</h6>
-											<p>{product.category}</p>									
-										</div>
-										<span>${product.price}</span>
-									</div>
-								</Link>	
-							);
-						})}				
-				</div>
+				{products.length > 0 
+					?
+					<div className='products-list'>
+							{products.map(product => {
+									return (
+										<Link to={'/product/'+product.id} key={product.id}>
+											<div className='product'>
+												<div className='product-image'>
+													<img src={product.image}/>
+												</div>
+												<div className='product-details'>
+													<h3>{product.name}</h3>
+													<h6>{product.company}</h6>
+													<p>{product.category}</p>									
+												</div>
+												<span>${product.price}</span>
+											</div>
+										</Link>	
+									);
+								})}	
+					</div>
+					:
+					<h3 className='no-results'>No Results</h3>
+				}	
 			</div>
 		</>	
 	);

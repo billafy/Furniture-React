@@ -1,9 +1,49 @@
-Frequently Asked Questions
-What is the most popular furniture style?
-The most popular furniture styles include rustic farmhouse, modern, glam, and traditional. The chances of these furniture styles going out of trend are minimal.
+import React, {useState, useEffect} from 'react';
+import { FAQuestions } from './utils/constants';
+import {AiOutlinePlus} from 'react-icons/ai';
+import './utils/help.css';
 
-What are the latest trends in furniture?
-The latest trends in furniture include bamboo furniture, denim, jungle prints and neutral palette upholstered furniture, multi-functional furniture, unique metal furniture, and artisan-inspired furniture.
+const Help = () => {
+	const [FAQ, setFAQ] = useState(FAQuestions);
 
-What wood is best for furniture?
-Hardwoods such as maple, oak, teak, mahogany, walnut, ash, acacia are some of the most commonly used wood types that are best for furniture.
+	useEffect(() => {
+		setFAQ(FAQ.map(faq => {
+			return {...faq,showAnswer:false};
+		}));
+	}, []);
+
+	const toggleAnswer = (id) => {
+		const newFAQ = FAQ.map(faq => {
+			if(faq.id===id)
+				return {...faq,showAnswer:!faq.showAnswer};
+			return faq;
+		});
+		setFAQ(newFAQ);
+	}
+
+	return (
+		<section className='help'>
+			<h1>Frequently Asked Questions</h1>
+			<div className='faq-list'>
+				{FAQ &&
+					FAQ.map(faq => {
+						return (
+							<div className='faq' key={faq.id}>
+								<p className={faq.showAnswer ? 'question-ans' : 'question'}>
+									{faq.question}
+									<button onClick={()=>toggleAnswer(faq.id)}><AiOutlinePlus/></button>
+								</p>
+								{faq.showAnswer && 
+									<p className='answer'>
+										{faq.answer}
+									</p>	
+								}					
+							</div>	
+						);
+					})}
+			</div>			
+		</section>			
+	);
+}
+
+export default Help;

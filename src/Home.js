@@ -74,6 +74,7 @@ const Home = () => {
 											<p>{product.name}</p>							
 										</div>	
 									);
+								return <></>;
 							})}	
 						</div>	
 						:
